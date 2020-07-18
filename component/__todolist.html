@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简单组件</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<ol id="app">
+    <todo-item v-for="el in aList" :todo="el"></todo-item>
+</ol>
+<script>
+    Vue.component('todo-item', {
+        props: ['todo'],
+        template: '<li>{{ todo.text }}</li>'
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            aList: [
+                {text: 'hello'},
+                {text: 'there'},
+            ]
+        }
+    })
+</script>
+</body>
+</html>
